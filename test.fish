@@ -30,6 +30,7 @@ function execute
     end 
 end
 
+
 function show_result -a result testnum 
     if test -z "$result" 
         set_color green    
@@ -38,7 +39,7 @@ function show_result -a result testnum
         set_color red 
         echo "[TEST::$testnum] :: ❌ WRONG ANSWER!"
         set_color normal
-        echo $result
+        diff -c ./testdata/$testnum.out ./testdata/$testnum.myout
     else 
         set_color red 
         echo "[TEST::$testnum] :: ❌ WRONG ANSWER!"
