@@ -1,11 +1,13 @@
 #!/usr/bin/env fish
 
 # The # must be replaced by a number such as 1,2,3,...
+# TODO: change show diff and test, test a specific test and show help
+#TODo: show execution time
 
 set IN ./testdata/*.in
 set OUT ./testdata/*.out
 set TESTS (count $IN)
-set SHOW_DIFF true
+set SHOW_DIFF false
 
 # Compiling option
 set CPP g++ -O2 -w -lm # C++
@@ -23,7 +25,7 @@ end
 
 function execute 
     echo "=================TESTS================="
-    for i in $TESTS
+    for i in (seq 1 $TESTS)
         ./a.out < ./testdata/$i.in > ./testdata/$i.myout
         set result (diff ./testdata/$i.out ./testdata/$i.myout)
         show_result "$result" $i
