@@ -7,7 +7,7 @@
 set IN ./testdata/*.in
 set OUT ./testdata/*.out
 set TESTS (count $IN)
-set SHOW_DIFF false
+set SHOW_DIFF true
 
 # Compiling option
 set CPP g++ -O2 -w -lm # C++
