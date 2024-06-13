@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
-#include <climits>
 #include <unordered_map>
+#include <climits> 
 using namespace std;
 #define ull unsigned long long
 #define ul unsigned long
@@ -17,22 +17,21 @@ using namespace std;
 const int INF = INT_MAX;
 const int MOD = 1000000007;
 
-
-
 int main(){
     ANMR
-    int n; 
-    cin >> n; 
-    vector<long> dp(n+1,0);
+    int n, x, tmp; 
 
-    dp[0] = 1;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= 6; j++) {
-            if (i-j >= 0) dp[i] += dp[i-j];
-        }
-        dp[i] %= MOD;
+    cin >> n >> x; 
+    unordered_map<int, int> um; 
+    FOR(n) {
+        cin >> tmp; 
+        if (tmp > x) continue; 
+        if (um.find(x-tmp) != um.end()) {
+            cout << um[x-tmp]+1 << " " << i+1 << endl; 
+            return 0; 
+        } 
+        um[tmp] = i; 
     }
-    
-    cout << dp[n] << endl;
-}
+    cout << "IMPOSSIBLE" << endl; 
 
+}
